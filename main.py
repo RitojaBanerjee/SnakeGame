@@ -28,10 +28,10 @@ screen.onkey(key="Left", fun=snake.left)
 screen.onkey(key="Right", fun=snake.right)
 
 #game started - snake is moving
-game_speed = 0.1
+sleep_delay = 0.5
 game_is_on = True
 while game_is_on:
-    time.sleep(0.5)
+    time.sleep(sleep_delay)
     screen.update()
     snake.move()
 
@@ -44,7 +44,7 @@ while game_is_on:
         snake.extend()
 
         if scoreboard.score % 20 == 0 and scoreboard.score > 0:
-            game_speed *= 0.9
+            sleep_delay -= 0.05
 
     if snake.head.xcor() > 300 :
         snake.head.goto(-300, snake.head.ycor())
